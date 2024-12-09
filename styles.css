@@ -1,0 +1,504 @@
+body {
+    font-family: Arial, sans-serif; 
+}
+
+.top-bar {
+    height: 60px;
+    width: 96.7%;               
+    background-color: rgb(255, 255, 255);
+    display: flex;             
+    justify-content: space-between;
+    align-items: center; 
+    margin-left: 9px;
+    margin-right: 9px;       
+    padding: 0 20px;           
+    color: rgb(230, 77, 110);  
+    font-weight: bold;          
+    font-size: 20px;           
+}
+
+.branding {
+    display: flex;             
+    align-items: center;       
+    gap: 10px;                 
+}
+
+.logo {
+    height: 1em;               
+    width: auto;               
+}
+
+.buttons {
+    position: absolute;        
+    left: 50%;                 
+    transform: translateX(-50%);
+    display: flex;             
+    gap: 20px;                 
+}
+
+.btn {
+    background-color: #ffffff;  /* Light grey background color */
+    border: none;               /* No border */
+    color: rgb(121, 121, 121);               /* Dark text color for contrast */
+    font-size: 16px;           
+    padding: 10px 20px;        
+    border-radius: 20px;        /* Rounded corners */
+    cursor: pointer;           
+    transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.btn.active {
+    color: black;                /* Active button will be black */
+}
+
+/* Adjusted the hover effect */
+.btn:hover {
+    background-color: #e4e2e2;  
+    color: rgb(0, 0, 0);            /* Text color turns black when hovered */
+}
+
+/* Right side (Text, Globe icon, and User image) */
+.right-side {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    position: absolute;
+    right: 20px; 
+}
+
+.text-right {
+    font-size: 16px;
+    color: white;
+}
+
+/* Menu Button Box (Yellow box around globe icon and user image) */
+.menu-button-box {
+    background-color: rgb(255, 255, 255);
+    padding: 7px;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;  /* Needed for positioning the dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Adding shadow */
+}
+
+
+/* Adjust size of the hamburger icon */
+.fa-sharp.fa-regular.fa-bars {
+    font-size: 17px; 
+    margin-left: 4px;
+    color: rgb(133, 133, 133); 
+}
+
+/* Increase user image size */
+.user-img {
+    width: 50px; 
+    height: 47px; 
+    border-radius: 50%; 
+}
+
+/* Adjust size of the globe icon */
+.fa-sharp.fa-solid.fa-globe {
+    font-size: 17px; 
+    color: rgb(0, 0, 0); 
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;          /* Hide by default */
+    position: absolute;     /* Absolute positioning for dropdown */
+    top: 40px;              /* Adjust the dropdown position below the menu box */
+    right: 0;               /* Align the dropdown to the right */
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow to the dropdown */
+    border-radius: 5px;     /* Round the corners */
+    min-width: 160px;       /* Set a minimum width for the dropdown */
+    z-index: 1;             /* Ensure it appears above other elements */
+    font-family: inherit;
+    font-size: 16px;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: rgb(97, 97, 97); 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;         /* Make the links block elements */
+    font-family: inherit;
+}
+
+.dropdown-content a:hover {
+    background-color: #f7f4f4; /* Highlight on hover */
+}
+
+/* Show the dropdown when the menu button box is hovered */
+.menu-button-box:hover .dropdown-content {
+    display: block;         /* Show the dropdown */
+}
+
+.combined-buttons {
+    display: flex;
+    justify-content: left;          /* Align buttons to the left */
+    margin-top: 15px;               /* Space between top bar and combined buttons */
+    margin-left: auto;              /* Center the box horizontally */
+    margin-right: auto;             /* Center the box horizontally */
+    border-radius: 30px;            /* Rounded corners for the container */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2); /* Adding shadow to the box */
+    outline: 1px solid #ccc;        /* Adding an outline to the box */
+    padding: 2px;                 /* Padding inside the container */
+    width: 55%;                     /* Adjust the width of the container (percentage) */
+    height: 55px;
+    max-width: 800px;               /* Optional: set a maximum width for larger screens */
+    position: relative;             /* To allow for the vertical lines in container */
+}
+
+.combined-btn {
+    background-color: #ffffff;
+    border: none;
+    color: black;
+    font-size: 16px;                /* Adjust font size */
+    padding: 10px 40px;             /* Increased padding for larger button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left;               /* Align text to the left */
+    border-radius: 20px;            /* Rounded corners for individual buttons */
+    flex: 1;                        /* Make each button grow to fill available space */
+    margin: 0;                      /* No margin between buttons */
+    position: relative;             /* Allow positioning of vertical lines */
+    display: flex;                  /* Use flexbox to stack texts inside the button */
+    flex-direction: column;         /* Stack texts vertically */
+    justify-content: center;        /* Vertically center the content */
+    font-weight: normal;            /* Ensures text is not bold */
+    font-family: Arial, sans-serif; /* Set a standard font */
+}
+/* Add vertical lines between buttons within the combined-buttons container */
+.combined-buttons .combined-btn:not(:last-child)::after {
+    content: '';                    /* Empty content for the line */
+    position: absolute;             /* Absolute position to place the line */
+    right: 0;                       /* Place at the right of each button */
+    top: 50%;                       /* Align the line vertically in the center */
+    transform: translateY(-50%);    /* Adjust the line's position to truly center it */
+    height: 70%;                    /* Height of the line (you can adjust this) */
+    width: 1px;                     /* Width of the vertical line */
+    background-color: #ccc;         /* Color of the vertical line */
+}
+
+/* Optional: Add hover effect */
+.combined-btn:hover {
+    background-color: #e4e2e2;      /* Change background on hover */
+}
+
+/* Style for the top text inside the button */
+.button-top {
+    font-size: 13px;
+    margin-bottom: 5px;             /* Margin between top text and the second text */
+}
+
+/* Style for the text below the top text */
+.button-text {
+    font-size: 14px;
+    color: grey;
+}
+
+/* Icon inside the third button */
+.icon-btn {
+    background-color: rgb(230, 77, 110); /* Same as icon background */
+    border: none;                      /* Remove border */
+    color: rgb(255, 255, 255);         /* Icon color */
+    border-radius: 50%;                /* Make it a circle */
+    width: 41px;                       /* Match the icon's width */
+    height: 41px;                      /* Match the icon's height */
+    display: flex;                     /* Center the icon inside */
+    justify-content: center;           /* Horizontally center the icon */
+    align-items: center;               /* Vertically center the icon */
+    cursor: pointer;                   /* Pointer cursor on hover */
+    margin-top: 5px;
+    margin-right:8px;
+}
+
+.icon-btn:hover {
+    background-color: rgb(230, 77, 110); /* Slightly darker red on hover */
+}
+
+.icon-btn i {
+    font-size: 19px; /* Adjust icon size */
+}
+
+
+.combined-btnn {
+    background-color: #ffffff;
+    border: none;
+    color: black;
+    font-size: 16px;                /* Adjust font size */
+    padding: 10px 20px;             /* Adjust padding for button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left;               /* Align text to the left */
+    border-radius: 20px;            /* Rounded corners for individual buttons */
+    flex: 1;                        /* Make each button grow to fill available space */
+    margin: 0;                      /* No margin between buttons */
+    position: relative;             /* Allow positioning of vertical lines */
+    display: flex;                  /* Use flexbox to organize content */
+    align-items: center;            /* Align content vertically */
+    justify-content: space-between; /* Separate text and icon */
+    font-weight: normal;            /* Ensures text is not bold */
+    font-family: Arial, sans-serif; /* Set a standard font */
+}
+.combined-btnn:hover {
+    background-color: #e4e2e2;      /* Change background on hover */
+}
+
+.horizontal-line {
+    width: 100%;              /* Make the line span across the entire width */
+    height: 1px;              /* Thickness of the line */
+    background-color: #ccc;   /* Color of the line */
+    margin-top: 20px;         /* Add some spacing above the line */
+}
+
+
+
+.scrollable-tabs-container {
+    font-family: "Roboto", sans-serif;
+    background: #ffffff;
+    max-width: 940px;
+    margin: 16px auto;
+    border-radius: 100px;
+    overflow: hidden;
+    position:absolute;
+    margin-left: 30px;
+  }
+  
+  .scrollable-tabs-container svg {
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    cursor: pointer;
+    color: #030303;
+    border-radius: 50%;
+    pointer-events: auto;
+  }
+  
+  .scrollable-tabs-container ul {
+    display: flex;
+    gap: 20px; /* Adjust spacing between buttons */
+    padding: 12px 24px;
+    margin: 0;
+    list-style: none;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  
+  .scrollable-tabs-container ul.dragging a {
+    pointer-events: none;
+  }
+  
+  .scrollable-tabs-container ul.dragging {
+    scroll-behavior: auto;
+  }
+  
+  .scrollable-tabs-container ul::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  
+  .scrollable-tabs-container a {
+    color: #fff;
+    text-decoration: none;
+    background: #333;
+    padding: 4px 24px;
+    display: inline-block;
+    border-radius: 4px;
+    user-select: none;
+    white-space: nowrap;
+  }
+  
+  .scrollable-tabs-container a.active {
+    background: #fff;
+    color: #000;
+  }
+  
+  .scrollable-tabs-container .right-arrow,
+  .scrollable-tabs-container .left-arrow {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    top: 0;
+    display: none;
+    align-items: center;
+    padding: 0 10px;
+    pointer-events: none;
+  }
+  
+  .scrollable-tabs-container .right-arrow.active,
+  .scrollable-tabs-container .left-arrow.active {
+    display: flex;
+  }
+  
+  .scrollable-tabs-container .right-arrow {
+    right: 0;
+    background: linear-gradient(to left, #f5f4f4 10%, transparent);
+    justify-content: flex-end;
+  }
+  
+  .scrollable-tabs-container .left-arrow {
+    background: linear-gradient(to right, #fffefe 10%, transparent);
+  }
+  
+  .scrollable-tabs-container svg:hover {
+    background: #d6d5d5;
+  }
+  
+  .icon-button {
+    display: flex; /* Flex layout for vertical alignment */
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center-align both icon and text */
+    justify-content: center; /* Center content within the button */
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border for buttons */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    padding: 0; /* Remove default padding */
+    width: 60px; /* Set a fixed width for buttons */
+  }
+  .icon-button:hover {
+    background-color: rgba(18, 139, 18, 0.1); /* Light hover effect */
+  }
+  
+  .icon-button span {
+    margin-top: 5px; /* Space between icon and text */
+    font-size: 12px; /* Font size for text */
+    text-align: center; /* Center-align text */
+    color: rgb(114, 114, 114); /* Text color */
+  }
+  .icon-button i {
+    font-size: 24px; /* Icon size */
+    color: rgb(114, 114, 114); /* Icon color */
+  }
+  
+  .scroll-btn {
+    background-color: transparent; /* Transparent background */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 50px; /* Increase size of scroll buttons */
+    height: 50px; /* Increase size of scroll buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .scroll-btn:hover {
+    background-color: #f1f1f1;
+  }
+  .scrollable-tabs-container li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+/* Container to align buttons side by side */
+.button-container {
+    display: flex; /* This makes the buttons align horizontally */
+    gap: 10px; /* Adds space between the buttons */
+    margin-left: 980px; /* Optional to shift buttons to the right */
+  }
+  
+  /* Button styling */
+  .righ1 {
+    margin-top: 30px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 13px; /* Rounded corners */
+    width: 100px; /* Set width */
+    height: 50px; /* Set height */
+    display: flex; /* Ensures the icon is centered */
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
+    cursor: pointer;
+    background-color: white; /* Background color */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    gap: 8px;
+  }
+
+  .righ1 i{
+    font-size: 18px; /* Icon size */
+  }
+  
+  .righ1:hover {
+    background-color: #f7f7f7; /* Hover effect */
+  }
+
+  /* The button styling remains the same */
+.right2 {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 13px;
+    width: 250px;
+    height: 50px;
+    padding: 0 10px;
+    gap: 10px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .right2 p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Switch styling */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 50px;  /* Round edges */
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;  /* Round circle */
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  /* When checked, the slider turns green, and the circle slides right */
+  input:checked + .slider {
+    background-color: rgb(230, 77, 110);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(25px);  /* Slide the circle to the right */
+  }
+  
+  .right2:hover {
+    background-color: #f7f7f7; /* Hover effect */
+  }
+  
+  
