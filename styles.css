@@ -352,30 +352,38 @@ body {
   }
   
   .icon-button {
-    display: flex; /* Flex layout for vertical alignment */
-    flex-direction: column; /* Stack icon and text vertically */
-    align-items: center; /* Center-align both icon and text */
-    justify-content: center; /* Center content within the button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: transparent; /* Transparent background */
-    border: none; /* No border for buttons */
-    cursor: pointer; /* Pointer cursor for interactivity */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
     padding: 0; /* Remove default padding */
-    width: 60px; /* Set a fixed width for buttons */
-  }
-  .icon-button:hover {
-    background-color: rgba(18, 139, 18, 0.1); /* Light hover effect */
-  }
-  
-  .icon-button span {
-    margin-top: 5px; /* Space between icon and text */
-    font-size: 12px; /* Font size for text */
-    text-align: center; /* Center-align text */
-    color: rgb(114, 114, 114); /* Text color */
-  }
-  .icon-button i {
+    width: 60px; /* Set a fixed width */
+}
+
+.icon-button i {
     font-size: 24px; /* Icon size */
     color: rgb(114, 114, 114); /* Icon color */
-  }
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.icon-button:hover i, .icon-button:hover span {
+  color: rgb(230, 77, 110); /* Change color when hovered */
+}
+
+/* Icon and text color when active */
+.icon-button.active i, .icon-button.active span {
+  color: rgb(230, 77, 110); /* Active color for both icon and text */
+}
+
+/* Default color for icon and text */
+.icon-button i, .icon-button span {
+  color: rgb(114, 114, 114); /* Default color */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
   
   .scroll-btn {
     background-color: transparent; /* Transparent background */
@@ -501,4 +509,227 @@ body {
     background-color: #f7f7f7; /* Hover effect */
   }
   
-  
+
+  .image-container {
+    width: 100%;
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; /* Hide overflowing content during transition */
+    transition: background-image 0.5s ease-in-out; /* Smooth transition for image swap */
+}
+
+/* Initially hide the arrows */
+.left-arrow2, .right-arrow2 {
+    margin-top: 140px;
+    border-radius: 30px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%);
+    background-color: transparent; /* Transparent background */
+    color: rgb(0, 0, 0);
+    padding: 7px; /* Adjusted padding */
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+    opacity: 0; /* Arrows are hidden initially */
+    pointer-events: none; /* Disable clicking when arrows are hidden */
+}
+
+/* Show arrows when hovering over the image container */
+.image-container:hover .left-arrow2,
+.image-container:hover .right-arrow2 {
+    opacity: 1; /* Arrows become visible */
+    pointer-events: auto; /* Enable clicking when arrows are visible */
+    background-color: rgb(255, 255, 255); 
+}
+
+/* Left arrow button */
+.left-arrow2 {
+    left: 3px; /* Position to the left */
+}
+
+/* Right arrow button */
+.right-arrow2 {
+    right: 3px; /* Position to the right */
+}
+
+
+
+.image-container i {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: rgb(211, 210, 210);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+.image-container i.liked {
+    color: rgb(230, 77, 110); /* Color when liked */
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+.container2 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  gap: 7px; /* Gap between boxes */
+  margin-top: 40px;
+  justify-content: center; /* Centers the boxes horizontally */
+  align-items: center; /* Centers the boxes vertically (if needed) */
+}
+
+.box1 {
+  width: 304px;
+  height: 400px;
+  background-color: rgb(211, 210, 210); /* Grey color for the bottom half of the boxes */
+  border-radius: 15px; /* Optional rounded corners */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative; /* Allow positioning of the heart icon */
+  margin: 2px; /* Reduced space between boxes */
+  font-size: 14px; /* Default font size */
+  color: rgb(0, 0, 0); /* Default text color */
+}
+
+
+.location, .distance, .dates, .price {
+    text-align: left; /* Align text to the left */
+    margin: 3.5px 10px; /* Add margin for spacing */
+}
+
+/* Style for the location text */
+/* Style for the location text */
+.location {
+  margin-top: 13px;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex; /* Use flexbox to align text and rating */
+  justify-content: space-between; /* Ensure space between location and rating */
+  align-items: center; /* Vertically center the content */
+}
+
+/* Rating styling */
+.rating {
+  font-size: 14px; /* Smaller font for the rating */
+  color: #222222; /* Color for the star */
+  display: flex; /* Align the star and number horizontally */
+  align-items: center; /* Center vertically */
+  gap: 4px; /* Space between the star and the number */
+}
+
+.rating .fa-star {
+  color: #222222; /* Star color */
+  font-size: 14px; /* Size of the star */
+}
+
+
+/* Style for the distance text */
+.distance {
+  font-size: 15px; /* Standard font size for distance */
+  color: rgb(114, 114, 114);
+}
+
+/* Style for the date range text */
+.dates {
+  font-size: 15px; /* Standard font size for date range */
+  color: rgb(114, 114, 114);
+}
+
+/* Style for the price text */
+.price {
+  margin: 10px;
+  font-weight:550; /* Bold for the price */
+  color: #222222; /* Price color */
+  font-size: 16px; /* Slightly larger font size for price */
+}
+
+/* Main book container */
+.book {
+  width: 70px;
+  height: 75px;
+  position: absolute;
+  top: 82%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  perspective: 800px; /* Enables 3D effect */
+  transition: transform 0.5s ease; /* Smooth transition for lifting effect */
+}
+
+/* Book base (bottom part) */
+.book-base {
+  width: 100%;
+  height: 100%;
+  background: #c2c2c2; /* Base color */
+  border-radius: 0 10px 10px 0; /* Only right edges rounded */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Book cover (top part) */
+.book-cover {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #ffffff, #e0e0e0); /* Light shadow for 3D effect */
+  border-radius: 0 10px 10px 0; /* Only right edges rounded */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left; /* Pivot from the left edge (spine of the book) */
+  transform: rotateY(0deg); /* Initial state */
+  transform-style: preserve-3d; /* Preserve 3D perspective */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth animation */
+  z-index: 2;
+}
+
+/* Add the vertical line on the left side of the book */
+.book-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5px; /* Move the line a little to the right */
+  width: 1.6px; /* Width of the vertical line */
+  height: 100%;
+  background-color: #cccbcb; /* Color of the vertical line */
+}
+
+
+
+/* Image on the book cover */
+.book-cover img {
+  width: 45px; /* Width of the circular image */
+  height: 45px; /* Height of the circular image */
+  border-radius: 50%; /* Makes the image round */
+  position: absolute;
+  top: 50%; /* Vertically centers the image */
+  left: 50%; /* Horizontally centers the image */
+  transform: translate(-50%, -50%); /* Ensures perfect centering */
+  border: 1px solid white; /* Clean border around the picture */
+  box-shadow: 
+    inset 0 3px 5px rgba(0, 0, 0, 0.3), /* Inner shadow for depth */
+    0 5px 10px rgba(0, 0, 0, 0.2); /* Outer shadow for realism */
+  background-color: #f9f9f9; /* Light background color to simulate a page */
+}
+
+/* Hover effect: tilt cover and lift book */
+.box1:hover .book {
+  transform: translate(-50%, -55%) perspective(800px); /* Lifts the book upward */
+}
+
+.box1:hover .book-cover {
+  transform: rotateY(-30deg); /* Tilts the cover horizontally */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Adds 3D shadow */
+}
+
