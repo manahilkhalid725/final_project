@@ -74,8 +74,8 @@ body {
 /* Menu Button Box (Yellow box around globe icon and user image) */
 .menu-button-box {
     background-color: rgb(255, 255, 255);
-    padding: 7px;
-    height: 30px;
+    padding: 8px;
+    height: 37px;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -139,68 +139,82 @@ body {
 }
 
 .combined-buttons {
-    display: flex;
-    justify-content: left;          /* Align buttons to the left */
-    margin-top: 15px;               /* Space between top bar and combined buttons */
-    margin-left: auto;              /* Center the box horizontally */
-    margin-right: auto;             /* Center the box horizontally */
-    border-radius: 30px;            /* Rounded corners for the container */
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2); /* Adding shadow to the box */
-    outline: 1px solid #ccc;        /* Adding an outline to the box */
-    padding: 2px;                 /* Padding inside the container */
-    width: 55%;                     /* Adjust the width of the container (percentage) */
-    height: 55px;
-    max-width: 800px;               /* Optional: set a maximum width for larger screens */
-    position: relative;             /* To allow for the vertical lines in container */
+  display: flex;
+  justify-content: left;          /* Align buttons to the left */
+  margin-top: 15px;               /* Space between top bar and combined buttons */
+  margin-left: auto;              /* Center the box horizontally */
+  margin-right: auto;             /* Center the box horizontally */
+  border-radius: 30px;            /* Rounded corners for the container */
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2); /* Adding shadow to the box */
+  outline: 1px solid #ccc;        /* Adding an outline to the box */
+  padding: 2px;                 /* Padding inside the container */
+  width: 55%;                     /* Adjust the width of the container (percentage) */
+  height: 55px;
+  max-width: 800px;               /* Optional: set a maximum width for larger screens */
+  position: relative;             /* To allow for the vertical lines in container */
+  background-color: #ffffff;
 }
 
 .combined-btn {
-    background-color: #ffffff;
-    border: none;
-    color: black;
-    font-size: 16px;                /* Adjust font size */
-    padding: 10px 40px;             /* Increased padding for larger button */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: left;               /* Align text to the left */
-    border-radius: 20px;            /* Rounded corners for individual buttons */
-    flex: 1;                        /* Make each button grow to fill available space */
-    margin: 0;                      /* No margin between buttons */
-    position: relative;             /* Allow positioning of vertical lines */
-    display: flex;                  /* Use flexbox to stack texts inside the button */
-    flex-direction: column;         /* Stack texts vertically */
-    justify-content: center;        /* Vertically center the content */
-    font-weight: normal;            /* Ensures text is not bold */
-    font-family: Arial, sans-serif; /* Set a standard font */
+  background-color: #ffffff;
+  border: none;
+  color: black;
+  font-size: 16px;                /* Adjust font size */
+  padding: 10px 40px;             /* Increased padding for larger button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: left;               /* Align text to the left */
+  border-radius: 20px;            /* Rounded corners for individual buttons */
+  flex: 1;                        /* Make each button grow to fill available space */
+  margin: 0;                      /* No margin between buttons */
+  position: relative;             /* Allow positioning of vertical lines */
+  display: flex;                  /* Use flexbox to stack texts inside the button */
+  flex-direction: column;         /* Stack texts vertically */
+  justify-content: center;        /* Vertically center the content */
+  font-weight: normal;            /* Ensures text is not bold */
+  font-family: Arial, sans-serif; /* Set a standard font */
 }
+
+/* Style for the icon button */
+.icon-btn {
+  position: absolute;
+  right: 10px; /* Moves the icon to the right */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically centers the icon */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 /* Add vertical lines between buttons within the combined-buttons container */
 .combined-buttons .combined-btn:not(:last-child)::after {
-    content: '';                    /* Empty content for the line */
-    position: absolute;             /* Absolute position to place the line */
-    right: 0;                       /* Place at the right of each button */
-    top: 50%;                       /* Align the line vertically in the center */
-    transform: translateY(-50%);    /* Adjust the line's position to truly center it */
-    height: 70%;                    /* Height of the line (you can adjust this) */
-    width: 1px;                     /* Width of the vertical line */
-    background-color: #ccc;         /* Color of the vertical line */
+  content: '';                    /* Empty content for the line */
+  position: absolute;             /* Absolute position to place the line */
+  right: 0;                       /* Place at the right of each button */
+  top: 50%;                       /* Align the line vertically in the center */
+  transform: translateY(-50%);    /* Adjust the line's position to truly center it */
+  height: 70%;                    /* Height of the line (you can adjust this) */
+  width: 1px;                     /* Width of the vertical line */
+  background-color: #ccc;         /* Color of the vertical line */
 }
 
 /* Optional: Add hover effect */
 .combined-btn:hover {
-    background-color: #e4e2e2;      /* Change background on hover */
+  background-color: #e4e2e2;      /* Change background on hover */
 }
 
 /* Style for the top text inside the button */
 .button-top {
-    font-size: 13px;
-    margin-bottom: 5px;             /* Margin between top text and the second text */
+  font-size: 13px;
+  margin-bottom: 5px;             /* Margin between top text and the second text */
 }
 
 /* Style for the text below the top text */
 .button-text {
-    font-size: 14px;
-    color: grey;
+  font-size: 14px;
+  color: grey;
 }
+
 
 /* Icon inside the third button */
 .icon-btn {
@@ -214,7 +228,6 @@ body {
     justify-content: center;           /* Horizontally center the icon */
     align-items: center;               /* Vertically center the icon */
     cursor: pointer;                   /* Pointer cursor on hover */
-    margin-top: 5px;
     margin-right:8px;
 }
 
@@ -271,11 +284,11 @@ body {
   }
   
   .scrollable-tabs-container svg {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     padding: 8px;
     cursor: pointer;
-    color: #030303;
+    color: #353535;
     border-radius: 50%;
     pointer-events: auto;
   }
@@ -348,7 +361,7 @@ body {
   }
   
   .scrollable-tabs-container svg:hover {
-    background: #d6d5d5;
+    background: #ffffff;
   }
   
   .icon-button {
@@ -384,58 +397,42 @@ body {
   transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-  
-  .scroll-btn {
-    background-color: transparent; /* Transparent background */
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    width: 50px; /* Increase size of scroll buttons */
-    height: 50px; /* Increase size of scroll buttons */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .scroll-btn:hover {
-    background-color: #f1f1f1;
-  }
-  .scrollable-tabs-container li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
 /* Container to align buttons side by side */
 .button-container {
     display: flex; /* This makes the buttons align horizontally */
     gap: 10px; /* Adds space between the buttons */
     margin-left: 980px; /* Optional to shift buttons to the right */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
   }
   
-  /* Button styling */
-  .righ1 {
+  .right1 {
+    background-color: white;
+    height: 50px; /* Increased height for better centering */
+    padding: 0 10px; /* Add padding for horizontal spacing */
+    border-radius: 10px; /* Round the corners */
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    transition: all 0.3s ease; /* Smooth transition for any hover effect */
+    gap: 10px;
     margin-top: 30px;
-    border: 1px solid #ddd; /* Light border */
-    border-radius: 13px; /* Rounded corners */
-    width: 100px; /* Set width */
-    height: 50px; /* Set height */
-    display: flex; /* Ensures the icon is centered */
-    align-items: center; /* Vertically center the icon */
-    justify-content: center; /* Horizontally center the icon */
-    cursor: pointer;
-    background-color: white; /* Background color */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    gap: 8px;
+  }
+  .righ1 i {
+    font-size: 18px; /* Icon size */
+    display: inline-block;
+  }
+  
+  .right1 p {
+    margin: 0; /* Removes any margin from the text */
+    line-height: 1; /* Ensures the text is vertically aligned with the icon */
   }
 
-  .righ1 i{
-    font-size: 18px; /* Icon size */
-  }
-  
   .righ1:hover {
     background-color: #f7f7f7; /* Hover effect */
   }
+  
 
   /* The button styling remains the same */
 .right2 {
@@ -450,7 +447,6 @@ body {
     gap: 10px;
     cursor: pointer;
     background-color: white;
-    transition: background-color 0.3s ease;
   }
   
   .right2 p {
@@ -524,44 +520,11 @@ body {
     transition: background-image 0.5s ease-in-out; /* Smooth transition for image swap */
 }
 
-/* Initially hide the arrows */
-.left-arrow2, .right-arrow2 {
-    margin-top: 140px;
-    border-radius: 30px;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    transform: translateY(-50%);
-    background-color: transparent; /* Transparent background */
-    color: rgb(0, 0, 0);
-    padding: 7px; /* Adjusted padding */
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease; /* Smooth transition for background */
-    opacity: 0; /* Arrows are hidden initially */
-    pointer-events: none; /* Disable clicking when arrows are hidden */
+.listing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
-/* Show arrows when hovering over the image container */
-.image-container:hover .left-arrow2,
-.image-container:hover .right-arrow2 {
-    opacity: 1; /* Arrows become visible */
-    pointer-events: auto; /* Enable clicking when arrows are visible */
-    background-color: rgb(255, 255, 255); 
-}
-
-/* Left arrow button */
-.left-arrow2 {
-    left: 3px; /* Position to the left */
-}
-
-/* Right arrow button */
-.right-arrow2 {
-    right: 3px; /* Position to the right */
-}
-
-
 
 .image-container i {
     position: absolute;
@@ -582,16 +545,17 @@ body {
 .container2 {
   background-color: rgb(255, 255, 255);
   display: flex;
+  flex-wrap: wrap;
   gap: 7px; /* Gap between boxes */
-  margin-top: 40px;
+  margin-top: 100px;
   justify-content: center; /* Centers the boxes horizontally */
   align-items: center; /* Centers the boxes vertically (if needed) */
 }
 
 .box1 {
-  width: 304px;
+  width: calc(25% - 20px);
   height: 400px;
-  background-color: rgb(211, 210, 210); /* Grey color for the bottom half of the boxes */
+  background-color: rgb(255, 255, 255); /* Grey color for the bottom half of the boxes */
   border-radius: 15px; /* Optional rounded corners */
   display: flex;
   flex-direction: column;
@@ -654,82 +618,15 @@ body {
   font-size: 16px; /* Slightly larger font size for price */
 }
 
-/* Main book container */
-.book {
-  width: 70px;
-  height: 75px;
+.fa-heart {
   position: absolute;
-  top: 82%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  perspective: 800px; /* Enables 3D effect */
-  transition: transform 0.5s ease; /* Smooth transition for lifting effect */
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-/* Book base (bottom part) */
-.book-base {
-  width: 100%;
-  height: 100%;
-  background: #c2c2c2; /* Base color */
-  border-radius: 0 10px 10px 0; /* Only right edges rounded */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+.fa-heart.liked {
+  color: red;
 }
-
-/* Book cover (top part) */
-.book-cover {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg, #ffffff, #e0e0e0); /* Light shadow for 3D effect */
-  border-radius: 0 10px 10px 0; /* Only right edges rounded */
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: left; /* Pivot from the left edge (spine of the book) */
-  transform: rotateY(0deg); /* Initial state */
-  transform-style: preserve-3d; /* Preserve 3D perspective */
-  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth animation */
-  z-index: 2;
-}
-
-/* Add the vertical line on the left side of the book */
-.book-cover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 5px; /* Move the line a little to the right */
-  width: 1.6px; /* Width of the vertical line */
-  height: 100%;
-  background-color: #cccbcb; /* Color of the vertical line */
-}
-
-
-
-/* Image on the book cover */
-.book-cover img {
-  width: 45px; /* Width of the circular image */
-  height: 45px; /* Height of the circular image */
-  border-radius: 50%; /* Makes the image round */
-  position: absolute;
-  top: 50%; /* Vertically centers the image */
-  left: 50%; /* Horizontally centers the image */
-  transform: translate(-50%, -50%); /* Ensures perfect centering */
-  border: 1px solid white; /* Clean border around the picture */
-  box-shadow: 
-    inset 0 3px 5px rgba(0, 0, 0, 0.3), /* Inner shadow for depth */
-    0 5px 10px rgba(0, 0, 0, 0.2); /* Outer shadow for realism */
-  background-color: #f9f9f9; /* Light background color to simulate a page */
-}
-
-/* Hover effect: tilt cover and lift book */
-.box1:hover .book {
-  transform: translate(-50%, -55%) perspective(800px); /* Lifts the book upward */
-}
-
-.box1:hover .book-cover {
-  transform: rotateY(-30deg); /* Tilts the cover horizontally */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Adds 3D shadow */
-}
-
