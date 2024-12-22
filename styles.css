@@ -328,6 +328,11 @@ body {
     white-space: nowrap;
   }
   
+  .scrollable-tabs-container a:hover {
+    text-decoration: none;
+}
+
+
   .scrollable-tabs-container a.active {
     background: #fff;
     color: #000;
