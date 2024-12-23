@@ -557,3 +557,104 @@
 .footer-rights p {
   margin: 0;
 }
+
+/* booking-page.css */
+.booking-page {
+  padding: 20px;
+  max-width: 600px;
+  margin: 40px auto; /* Added 40px margin-top and margin-bottom for space above and below */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.booking-page h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.booking-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-page form div {
+  margin-bottom: 15px;
+}
+
+.booking-page form label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.booking-page form input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.booking-page form button {
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-page form button:hover {
+  background-color: #0056b3;
+}
+
+
+/* listing-details.css */
+.listing-details {
+  padding: 20px;
+  max-width: 900px;
+  margin: 40px auto; /* Added 40px margin-top and margin-bottom for space above and below */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.listing-details .listing-image {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.listing-details h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.listing-details p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.listing-details button {
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listing-details button:hover {
+  background-color: #218838;
+}
+
+

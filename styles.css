@@ -271,120 +271,120 @@ body {
 }
 
 
+/* tabs.css */
 
 .scrollable-tabs-container {
-    font-family: "Roboto", sans-serif;
-    background: #ffffff;
-    max-width: 940px;
-    margin: 16px auto;
-    border-radius: 100px;
-    overflow: hidden;
-    position:absolute;
-    margin-left: 30px;
-  }
-  
-  .scrollable-tabs-container svg {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-    cursor: pointer;
-    color: #353535;
-    border-radius: 50%;
-    pointer-events: auto;
-  }
-  
-  .scrollable-tabs-container ul {
-    display: flex;
-    gap: 20px; /* Adjust spacing between buttons */
-    padding: 12px 24px;
-    margin: 0;
-    list-style: none;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-  }
-  
-  .scrollable-tabs-container ul.dragging a {
-    pointer-events: none;
-  }
-  
-  .scrollable-tabs-container ul.dragging {
-    scroll-behavior: auto;
-  }
-  
-  .scrollable-tabs-container ul::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
-  }
-  
-  .scrollable-tabs-container a {
-    color: #fff;
-    text-decoration: none;
-    background: #333;
-    padding: 4px 24px;
-    display: inline-block;
-    border-radius: 4px;
-    user-select: none;
-    white-space: nowrap;
-  }
-  
-  .scrollable-tabs-container a:hover {
-    text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  background: #ffffff;
+  max-width: 940px;
+  margin: 16px auto;
+  border-radius: 100px;
+  overflow: hidden;
+  position: absolute;
+  margin-left: 30px;
 }
 
+.scrollable-tabs-container svg {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  color: #353535;
+  border-radius: 50%;
+  pointer-events: auto;
+}
 
-  .scrollable-tabs-container a.active {
-    background: #fff;
-    color: #000;
-  }
-  
-  .scrollable-tabs-container .right-arrow,
-  .scrollable-tabs-container .left-arrow {
-    position: absolute;
-    height: 100%;
-    width: 100px;
-    top: 0;
-    display: none;
-    align-items: center;
-    padding: 0 10px;
-    pointer-events: none;
-  }
-  
-  .scrollable-tabs-container .right-arrow.active,
-  .scrollable-tabs-container .left-arrow.active {
-    display: flex;
-  }
-  
-  .scrollable-tabs-container .right-arrow {
-    right: 0;
-    background: linear-gradient(to left, #f5f4f4 10%, transparent);
-    justify-content: flex-end;
-  }
-  
-  .scrollable-tabs-container .left-arrow {
-    background: linear-gradient(to right, #fffefe 10%, transparent);
-  }
-  
-  .scrollable-tabs-container svg:hover {
-    background: #ffffff;
-  }
-  
-  .icon-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent; /* Transparent background */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor */
-    padding: 0; /* Remove default padding */
-    width: 60px; /* Set a fixed width */
+.scrollable-tabs-container ul {
+  display: flex;
+  gap: 20px; /* Adjust spacing between buttons */
+  padding: 12px 24px;
+  margin: 0;
+  list-style: none;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.scrollable-tabs-container ul.dragging a {
+  pointer-events: none;
+}
+
+.scrollable-tabs-container ul.dragging {
+  scroll-behavior: auto;
+}
+
+.scrollable-tabs-container ul::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.scrollable-tabs-container a {
+  color: #fff;
+  text-decoration: none;
+  background: #333;
+  padding: 4px 24px;
+  display: inline-block;
+  border-radius: 4px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.scrollable-tabs-container a:hover {
+  text-decoration: none;
+}
+
+.scrollable-tabs-container a.active {
+  background: #fff;
+  color: #000;
+}
+
+.scrollable-tabs-container .right-arrow,
+.scrollable-tabs-container .left-arrow {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  top: 0;
+  display: none;
+  align-items: center;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.scrollable-tabs-container .right-arrow.active,
+.scrollable-tabs-container .left-arrow.active {
+  display: flex;
+}
+
+.scrollable-tabs-container .right-arrow {
+  right: 0;
+  background: linear-gradient(to left, #f5f4f4 10%, transparent);
+  justify-content: flex-end;
+}
+
+.scrollable-tabs-container .left-arrow {
+  background: linear-gradient(to right, #fffefe 10%, transparent);
+}
+
+.scrollable-tabs-container svg:hover {
+  background: #ffffff;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+  padding: 0; /* Remove default padding */
+  width: 60px; /* Set a fixed width */
 }
 
 .icon-button i {
-    font-size: 24px; /* Icon size */
-    color: rgb(114, 114, 114); /* Icon color */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 24px; /* Icon size */
+  color: rgb(114, 114, 114); /* Icon color */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .icon-button:hover i, .icon-button:hover span {
@@ -400,6 +400,59 @@ body {
 .icon-button i, .icon-button span {
   color: rgb(114, 114, 114); /* Default color */
   transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Tabs List */
+.tabs-container {
+  margin: 0;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.tabs-list {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-item {
+  flex-shrink: 0;
+}
+
+.tab-item button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  color: #777;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.tab-item button:hover {
+  color: rgb(230, 77, 110);
+  background-color: rgba(230, 77, 110, 0.1);
+}
+
+.tab-item button.active {
+  color: rgb(230, 77, 110);
+  background-color: rgba(230, 77, 110, 0.2);
+}
+
+.tab-item i {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.tab-item span {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* Container to align buttons side by side */
@@ -547,6 +600,10 @@ body {
     -webkit-text-stroke: 1px rgb(255, 255, 255);
 }
 
+.image-container:hover {
+  transform: scale(1.05); /* Slight zoom effect when hovering */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+}
 .container2 {
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -570,7 +627,6 @@ body {
   font-size: 14px; /* Default font size */
   color: rgb(0, 0, 0); /* Default text color */
 }
-
 
 .location, .distance, .dates, .price {
     text-align: left; /* Align text to the left */
@@ -635,3 +691,4 @@ body {
 .fa-heart.liked {
   color: red;
 }
+

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Tabs() {
+function Tabs({ filterListings }) { // Accept the filterListings function as a prop
   const iconData = [
     { icon: 'fa-light fa-cabin', label: 'Cabins' },
     { icon: 'fa-regular fa-ticket', label: 'Icons' },
@@ -59,7 +59,10 @@ function Tabs() {
           <ul>
             {iconData.map((cat, idx) => (
               <li key={idx}>
-                <button className="icon-button">
+                <button
+                  className="icon-button"
+                  onClick={() => filterListings(cat.label)} // Call the filter function on button click
+                >
                   <i className={cat.icon}></i>
                   <span>{cat.label}</span>
                 </button>
