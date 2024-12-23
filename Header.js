@@ -1,10 +1,16 @@
 // src/components/Header.js
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import airbnbLogo from './airbnb.png';
 import userProfile from './user.png';
 
 function Header() {
+  const [activeTab, setActiveTab] = useState('experiences'); // 'stays' or 'experiences'
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div className="top-bar">
       <div className="branding">
@@ -12,13 +18,22 @@ function Header() {
         <span>airbnb</span>
       </div>
       <div className="buttons">
-        {/* Wrap the buttons in Link components */}
         <Link to="/stays">
-          <button className="btn" id="stays">Stays</button>
+          <button
+            className={`btn ${activeTab === 'stays' ? 'active' : ''}`}
+            id="stays"
+            onClick={() => handleTabClick('stays')}
+          >
+            Stays
+          </button>
         </Link>
-        <Link to="/experiences">
-          <button className="btn" id="experiences">Experiences</button>
-        </Link>
+        <button
+          className={`btn ${activeTab === 'experiences' ? 'active' : ''}`}
+          id="experiences"
+          onClick={() => handleTabClick('experiences')}
+        >
+          Experiences
+        </button>
       </div>
       <div className="right-side">
         <Link to="/airbnb-your-home">

@@ -1,27 +1,28 @@
-// src/App.js
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import Tabs from './components/Tabs';
-import Listings from './components/Listings';  // Import Listings component
-import SignUp from './components/SignUp';  // Create SignUp component
-import Login from './components/Login';  // Create Login component
-import GiftCards from './components/GiftCards';  // Create GiftCards component
-import Homepage from './components/Homepage';  // Import Homepage component
-import ExperiencePage from './components/ExperiencePage';  // Use the updated ExperiencePage component
-import HelpCentre from './components/HelpCentre';  // Create HelpCentre component
-import StaysPage from './components/StaysPage';  // Create StaysPage component
-import WherePage from './components/WherePage'; // Import WherePage component
-import DatePage from './components/DatePage';   // Import DatePage component
-import WhoPage from './components/WhoPage';     // Import WhoPage component
-import { setupTabListeners } from './utils/functions'; // Custom function
+import Listings from './components/Listings';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import GiftCards from './components/GiftCards';
+import Homepage from './components/Homepage';
+import ExperiencePage from './components/ExperiencePage';
+import HelpCentre from './components/HelpCentre';
+import StaysPage from './components/StaysPage';
+import WherePage from './components/WherePage';
+import DatePage from './components/DatePage';
+import WhoPage from './components/WhoPage';
+import CheckInPage from './components/CheckInPage';  // Import CheckInPage
+import CheckOutPage from './components/CheckOutPage'; // Import CheckOutPage
+import Footer from './components/Footer';  // Import Footer component
+import { setupTabListeners } from './utils/functions';
 import './App.css';
 import './components/styles.css';
 import './components/pages.css';
 
 function App() {
-  // Set up tab listeners when the component mounts
   useEffect(() => {
     setupTabListeners();
   }, []);
@@ -29,33 +30,29 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <Header />
+        <Header />  {/* Always present */}
         <SearchBar />
         <Tabs />
-        <Routes>
-          {/* Default Route to show Listings component */}
-          <Route path="/" element={<Listings />} /> {/* Display Listings by default */}
-          
-          {/* Stays Page Route */}
-          <Route path="/stays" element={<StaysPage />} /> {/* Add Stays page */}
 
-          {/* Experiences Page Route */}
-          <Route path="/experiences" element={<ExperiencePage />} /> {/* Add Experiences page */}
+        <div className="main-content"> {/* Wrapper for main content */}
+          <Routes>
+            <Route path="/" element={<Listings />} />
+            <Route path="/stays" element={<StaysPage />} />
+            <Route path="/checkin" element={<CheckInPage />} /> {/* Route for CheckInPage */}
+            <Route path="/checkout" element={<CheckOutPage />} /> {/* Route for CheckOutPage */}
+            <Route path="/experiences" element={<ExperiencePage />} />
+            <Route path="/airbnb-your-home" element={<Listings />} />
+            <Route path="/where" element={<WherePage />} />
+            <Route path="/date" element={<DatePage />} />
+            <Route path="/who" element={<WhoPage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/gift-cards" element={<GiftCards />} />
+            <Route path="/help-centre" element={<HelpCentre />} />
+          </Routes>
+        </div>
 
-          {/* Route for Airbnb Your Home - Only Listings */}
-          <Route path="/airbnb-your-home" element={<Listings />} /> {/* Only Listings component */}
-
-          {/* Routes for SearchBar buttons */}
-          <Route path="/where" element={<WherePage />} /> {/* Where page */}
-          <Route path="/date" element={<DatePage />} />   {/* Date page */}
-          <Route path="/who" element={<WhoPage />} />     {/* Who page */}
-
-          {/* Other Routes */}
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/gift-cards" element={<GiftCards />} />
-          <Route path="/help-centre" element={<HelpCentre />} />
-        </Routes>
+        <Footer />  {/* Footer added here */}
       </div>
     </Router>
   );

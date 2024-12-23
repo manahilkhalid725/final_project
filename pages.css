@@ -323,7 +323,6 @@
   font-size: 1.1rem;
   color: #666;
 }
-
 .page-container button {
   padding: 10px 20px;
   background-color: #4CAF50;
@@ -421,4 +420,140 @@
 
 .page-container button:hover {
   background-color: #45a049;
+}
+
+
+/* Example styles for the StaysPage buttons */
+.stays-page {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.stays-options .combined-btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 15px 25px;
+  background-color: #ffffff; /* Airbnb color */
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Grey border */
+}
+
+.stays-options .combined-btn .button-top {
+  font-weight: bold;
+}
+
+.stays-options .combined-btn .button-text {
+  font-size: 14px;
+}
+
+
+/* General page styles */
+.date-page {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.date-page h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input styles for the date */
+.date-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.date-input:focus {
+  border-color: #ff5a5f; /* Airbnb color */
+  outline: none;
+}
+
+/* Confirm button */
+.confirm-btn {
+  background-color: #ff5a5f; /* Airbnb color */
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background-color: #ff3d49;
+}
+
+.confirm-btn:focus {
+  outline: none;
+}
+
+.button-text{
+  color: black;
+}
+
+/* App.css */
+.app-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure container is at least 100% of viewport height */
+}
+
+.main-content-wrapper {
+  flex-grow: 1; /* This will allow content to take up remaining space */
+}
+
+.footer1 {
+  background-color: #d6d6d6; /* Dark background color */
+  color: rgb(0, 0, 0);
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Make sure it's at the bottom */
+}
+
+.footer-nav-links {
+  margin-bottom: 15px;
+}
+
+.footer-nav-link {
+  color: #000000;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.footer-nav-link:hover {
+  text-decoration: underline;
+}
+
+.footer-social-container {
+  margin-bottom: 15px;
+}
+
+.footer-social-icon {
+  color: #000000;
+  font-size: 20px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-social-icon:hover {
+  color: #0073e6;
+}
+
+.footer-rights {
+  font-size: 14px;
+}
+
+.footer-rights p {
+  margin: 0;
 }

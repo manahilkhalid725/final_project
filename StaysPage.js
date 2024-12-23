@@ -1,23 +1,20 @@
-// src/pages/StaysPage.js
+// src/components/StaysPage.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function StaysPage() {
   return (
-    <div className="stays-container">
-      <h1>Stays</h1>
-      <p>Browse through our selection of stays.</p>
-      <div className="stays-content">
-        <div className="stay-card">
-          <img src="https://via.placeholder.com/200" alt="Stay 1" />
-          <h3>Cozy Apartment</h3>
-          <p>2 Bedrooms, 1 Bathroom</p>
-        </div>
-        <div className="stay-card">
-          <img src="https://via.placeholder.com/200" alt="Stay 2" />
-          <h3>Beach House</h3>
-          <p>3 Bedrooms, 2 Bathrooms</p>
-        </div>
-        {/* Add more stay cards here */}
+    <div className="stays-page">
+      <h2>Select Your Stay Dates</h2>
+      <div className="stays-options">
+        <Link to="/checkin" className="combined-btn">
+          <div className="button-top">Check-in</div>
+          <div className="button-text">Add date</div>
+        </Link>
+        <Link to="/checkout" className="combined-btn">
+          <div className="button-top">Check-out</div>
+          <div className="button-text">Add date</div>
+        </Link>
       </div>
     </div>
   );
