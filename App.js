@@ -72,7 +72,8 @@ function App() {
             <Route path="/checkin" element={<CheckInPage />} />
             <Route path="/checkout" element={<CheckOutPage />} />
             <Route path="/experiences" element={<ExperiencePage />} />
-            <Route path="/airbnb-your-home" element={<Listings />} />
+            <Route path="/airbnb-your-home" 
+                   element={<Listings filteredListings={listings} />} /> {/* Show all listings */}
             <Route path="/where" element={<WherePage />} />
             <Route path="/date" element={<DatePage />} />
             <Route path="/who" element={<WhoPage />} />
