@@ -609,7 +609,7 @@
 }
 
 .booking-page form button:hover {
-  background-color: #0056b3;
+  background-color: #ff5a5f;
 }
 
 
@@ -645,7 +645,7 @@
 .listing-details button {
   padding: 12px 20px;
   font-size: 1.2rem;
-  background-color: #28a745;
+  background-color: #ff5a5f;
   color: white;
   border: none;
   border-radius: 5px;
@@ -654,7 +654,292 @@
 }
 
 .listing-details button:hover {
-  background-color: #218838;
+  background-color: #ff494f;
 }
 
 
+/*admin page*/
+/* Container styles */
+.admin-page-container {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Header styles */
+.admin-page-header {
+  color: #333333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Button container */
+.admin-page-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Button styles */
+.admin-page-button {
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-page-button:hover {
+  background-color: #fd4a50;
+}
+
+.admin-page-button:active {
+  transform: scale(0.95);
+}
+
+.admin-page-button:focus {
+  outline: none;
+  box-shadow: 0 0 6px #ee4f54(72, 239, 128, 0.8);
+}
+
+
+/* Container styles */
+.create-listing-container {
+  font-family: 'Arial', sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Header styles */
+.create-listing-header {
+  font-size: 1.8rem;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Message styles */
+.create-listing-message {
+  font-size: 1rem;
+  color: #fd4a50;
+  margin-bottom: 15px;
+}
+
+/* Form styles */
+.create-listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input styles */
+.create-listing-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.create-listing-input:focus {
+  outline: none;
+  border-color: #fd4a50;
+  box-shadow: 0 0 5px #fa3f45(0, 123, 255, 0.5);
+}
+
+/* Button styles */
+.create-listing-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #fd4a50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-listing-button:hover {
+  background-color: #fd373d;
+}
+
+.create-listing-button:active {
+  transform: scale(0.95);
+}
+
+.create-listing-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+
+/* Container styles */
+.read-listings-container {
+  font-family: 'Arial', sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Header styles */
+.read-listings-header {
+  font-size: 1.8rem;
+  color: #333333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Listings list styles */
+.read-listings-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual listing item */
+.read-listings-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.read-listings-item:last-child {
+  border-bottom: none;
+}
+
+/* Location and price styling */
+.read-listings-location {
+  font-weight: bold;
+  color: #ff5a5f;
+}
+
+.read-listings-price {
+  color: #ff5a5f;
+  font-weight: normal;
+}
+
+/* DeleteListing Styles */
+.delete-listing-container {
+  max-width: 400px;
+  margin: 60px auto; /* Adds 40px space above and below */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+
+.delete-listing-header {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.delete-listing-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.delete-listing-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5a5f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-listing-button:hover {
+  background-color: #ff383f;
+}
+
+.delete-listing-message {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #555;
+}
+
+.delete-listing-message.success {
+  color: #ff5a5f;
+}
+
+.delete-listing-message.error {
+  color: #ff5a5f;
+}
+
+/* UpdateListing Styles */
+.update-listing-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.update-listing-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.update-listing-input {
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  font-size: 16px;
+}
+
+.update-listing-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  background-color: #ff5a5f;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-listing-button:hover {
+  background-color: #fd464c;
+}

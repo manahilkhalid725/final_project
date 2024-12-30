@@ -1,27 +1,49 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();  // Initialize useNavigate
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Example signup API request
-    const response = await fetch('http://localhost:5000/api/users/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, email, password }),
-    });
+    if (!username || !email || !password) {
+      setMessage('All fields are required.');
+      return;
+    }
 
-    if (response.ok) {
-      alert('Signup successful! Please login.');
-      navigate('/login');  // Redirect to login page after successful signup
-    } else {
-      alert('Signup failed. Try again.');
+    setLoading(true);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/users/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      const data = await response.json();
+      console.log('Signup response:', data); // Debug log
+
+      if (response.ok) {
+        setMessage('Signup successful! Please login.');
+        setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
+      } else {
+        if (data.errors) {
+          setMessage(data.errors.map((err) => err.msg).join(', '));
+        } else {
+          setMessage(data.message || 'Signup failed. Try again.');
+        }
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+      setMessage('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -29,6 +51,7 @@ function SignUp() {
     <div className="signup-container">
       <div className="signup-form">
         <h2>Sign Up</h2>
+        {message && <p className="message">{message}</p>}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -48,11 +71,10 @@ function SignUp() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Sign Up</button>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Signing Up...' : 'Sign Up'}
+          </button>
         </form>
-        <div className="footer">
-          <p>Already have an account? <a href="/login">Login</a></p>
-        </div>
       </div>
     </div>
   );

@@ -1,27 +1,53 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();  // Initialize useNavigate
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Example login API request
-    const response = await fetch('http://localhost:5000/api/users/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
+    // Check if email and password are entered
+    if (!email || !password) {
+      setMessage('Please enter both email and password.');
+      return;
+    }
 
-    if (response.ok) {
+    setLoading(true);
+
+    try {
+      // Regular user login flow (API call)
+      const response = await fetch('http://localhost:5000/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
       const data = await response.json();
-      localStorage.setItem('token', data.token);  // Store the JWT token
-      navigate('/dashboard');  // Navigate to dashboard upon successful login
-    } else {
-      alert('Invalid login credentials');
+
+      if (response.ok) {
+        // Store the token and role for regular user or admin
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('role', data.role);  // 'admin' or 'user'
+        setMessage(data.message);
+
+        if (data.role === 'admin') {
+          navigate('/admin');  // Redirect to admin dashboard
+        } else {
+          navigate('/home');  // Redirect to user homepage (adjust this path as needed)
+        }
+      } else {
+        setMessage(data.message || 'Login failed. Please check your credentials.');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setMessage('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -29,24 +55,26 @@ function Login() {
     <div className="login-container">
       <div className="login-form">
         <h2>Login</h2>
+        {message && <p className="message">{message}</p>}
         <form onSubmit={handleSubmit}>
           <input
-            type="email"
-            placeholder="Email"
+            type="text"
+            placeholder="Username or Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
-          <button type="submit">Login</button>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
         </form>
-        <div className="footer">
-          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
-        </div>
       </div>
     </div>
   );

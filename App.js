@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -19,6 +19,11 @@ import CheckOutPage from './components/CheckOutPage';
 import Footer from './components/Footer';
 import ListingDetails from './components/ListingDetails';
 import Booking from './components/Booking';
+import AdminPage from './components/AdminPage';  // Import the AdminPage
+import CreateListing from './components/CreateListing';
+import ReadListings from './components/ReadListings';
+import UpdateListing from './components/UpdateListing';
+import DeleteListing from './components/DeleteListing';
 import { setupTabListeners } from './utils/functions';
 import './App.css';
 import './components/styles.css';
@@ -27,53 +32,60 @@ import './components/pages.css';
 function App() {
   const [listings, setListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(null);  // Track the selected category
+  const [activeCategory, setActiveCategory] = useState('null');
 
+  // Fetch all listings when the component mounts
   useEffect(() => {
     setupTabListeners();
-    // Fetch initial listings data
+    fetchListings();
+  }, []);
+
+  const fetchListings = () => {
     fetch('http://localhost:5000/api/listings')
       .then((response) => response.json())
       .then((data) => {
         setListings(data);
-        setFilteredListings(data); // Initially show all listings
+        setFilteredListings(data);  // Set the initial listings data to both listings and filteredListings
       })
       .catch((error) => console.error('Error fetching listings:', error));
-  }, []);
+  };
 
-  // Filtering function to be passed to Tabs
   const filterListings = (category) => {
     setActiveCategory(category);
     if (category === 'All') {
-      setFilteredListings(listings); // Show all listings
+      setFilteredListings(listings);  // Show all listings if "All" is selected
     } else {
       const filtered = listings.filter((listing) => listing.category === category);
-      setFilteredListings(filtered); // Show filtered listings based on category
+      setFilteredListings(filtered);
     }
   };
+
+  const updateListingsState = (updatedListing) => {
+    setFilteredListings((prevListings) =>
+      prevListings.map((listing) =>
+        listing._id === updatedListing._id ? updatedListing : listing
+      )
+    );
+  };
+
 
   return (
     <Router>
       <div className="app-container">
         <Header />
         <SearchBar />
-        {/* Pass filterListings function to Tabs to allow filtering */}
-        <Tabs filterListings={filterListings} activeCategory={activeCategory} /> 
-
+        <Tabs filterListings={filterListings} activeCategory={activeCategory} />
         <div className="main-content">
           <Routes>
-            <Route
-              path="/"
-              element={<Listings filteredListings={filteredListings} />}
-            />
+            {/* Make sure the Listings component is shown at the root (default route) */}
+            <Route path="/" element={<Listings filteredListings={filteredListings} />} />
             <Route path="/listing/:id" element={<ListingDetails />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/stays" element={<StaysPage />} />
             <Route path="/checkin" element={<CheckInPage />} />
             <Route path="/checkout" element={<CheckOutPage />} />
             <Route path="/experiences" element={<ExperiencePage />} />
-            <Route path="/airbnb-your-home" 
-                   element={<Listings filteredListings={listings} />} /> {/* Show all listings */}
+            <Route path="/airbnb-your-home" element={<Listings filteredListings={listings} />} /> {/* Show all listings */}
             <Route path="/where" element={<WherePage />} />
             <Route path="/date" element={<DatePage />} />
             <Route path="/who" element={<WhoPage />} />
@@ -81,9 +93,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/gift-cards" element={<GiftCards />} />
             <Route path="/help-centre" element={<HelpCentre />} />
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminPage />} />  {/* Direct to AdminPage */}
+            <Route path="/admin/create" element={<CreateListing fetchListings={fetchListings} />} /> {/* Pass fetchListings to re-fetch listings */}
+            <Route path="/admin/read" element={<ReadListings />} />
+            <Route path="/admin/update" element={<UpdateListing updateListingsState={updateListingsState} />} /> {/* Pass updateListingsState to update frontend state */}
+            <Route path="/admin/delete" element={<DeleteListing fetchListings={fetchListings} />} /> {/* Pass fetchListings to re-fetch listings after deletion */}
           </Routes>
         </div>
-
         <Footer />
       </div>
     </Router>

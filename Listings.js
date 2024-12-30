@@ -1,21 +1,10 @@
+// Listings Component
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Listings({ filterListings }) {
-  const [listings, setListings] = useState([]);
+function Listings({ filteredListings }) {
   const [liked, setLiked] = useState({});
-  const [filteredListings, setFilteredListings] = useState([]);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/listings')
-      .then((response) => response.json())
-      .then((data) => {
-        setListings(data);
-        setFilteredListings(data); // Initially show all listings
-      })
-      .catch((error) => console.error('Error fetching listings:', error));
-  }, []);
 
   const toggleHeart = (index) => {
     setLiked((prevLiked) => ({
@@ -28,13 +17,25 @@ function Listings({ filterListings }) {
     navigate(`/listing/${id}`);
   };
 
+  if (!filteredListings || filteredListings.length === 0) {
+    return <p>No listings available.</p>;
+  }
+
   return (
     <div className="listing-container">
       <div className="container2">
         {filteredListings.map((listing, idx) => (
-          <div key={listing.id} className="box1" onClick={() => handleListingClick(listing.id)}>
+          <div
+            key={listing._id}
+            className="box1"
+            onClick={() => handleListingClick(listing._id)}
+          >
             <div className="image-container">
-              <img src={listing.image} alt="Listing" className="listing-image" />
+              <img
+                src={listing.image || '/placeholder.jpg'}  // Ensure image URL is fetched and updated
+                alt={listing.location || 'Listing'}
+                className="listing-image"
+              />
               <i
                 className={`fa-solid fa-heart ${liked[idx] ? 'liked' : ''}`}
                 onClick={(e) => {
