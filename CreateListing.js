@@ -37,7 +37,7 @@ function CreateListing() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // Include the token in the header
+          'Authorization': `Bearer ${token}` // Corrected the Authorization header
         },
         body: JSON.stringify(listing)
       });
